@@ -1,0 +1,120 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  margin: 0 2rem;
+  padding: 1rem;
+  min-width: 100px;
+  display: inline-block;
+  text-align: center;
+}
+
+.container-global {
+  height: 100vh;
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #153264,
+    #2b4e94,
+    #446ac7,
+    #6088fd
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.container-global h2 {
+  font-size: 6rem;
+  color: white;
+  text-align: start;
+}
+
+.container-global__sectionForm {
+  width: 90vw;
+  margin-top: 3rem;
+}
+
+.container-global__sectionForm label {
+  display: block;
+  margin: 0.7rem;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+}
+.container-global__sectionForm form {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.container-global__sectionForm form,
+input {
+  width: 100%;
+}
+
+.container-global__sectionForm input {
+  border: none;
+  padding: 1.8rem 1.5rem;
+  background-color: rgb(246, 246, 246);
+  height: 5rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  border: 0.5px solid rgb(229, 229, 229);
+  font-size: 1.5rem;
+}
+
+.container-global__sectionForm button {
+  background-color: #153264;
+  width: 100%;
+  border-radius: 1rem;
+  color: white;
+  padding: 2rem 0;
+  border: none;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
+
+.container-global__account {
+  margin-top: 2rem;
+}
+
+.container-global__account p,
+a {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .container-global__sectionForm {
+    width: 35vw;
+  }
+}
+
+.message-info {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem !important;
+}

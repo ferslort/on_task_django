@@ -1,0 +1,91 @@
+.loginForm {
+  margin-top: 5%;
+}
+
+.loginForm h2 {
+  font-size: 3.2rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.loginForm form {
+  max-width: 50%;
+  margin: 0 auto;
+}
+
+.loginForm__form fieldset {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  border: none;
+}
+
+.loginForm__form label {
+  font-size: 1.5rem;
+  margin: 0.2rem 0;
+  font-weight: lighter;
+}
+
+.loginForm__form input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.6rem;
+  margin: 0.6rem 0;
+}
+
+.loginForm__form input::placeholder {
+  font-size: 1.5rem;
+}
+
+.loginForm__form fieldset button {
+  width: 60%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.6rem;
+  background-color: #151fe4;
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.loginForm__form select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.6rem;
+  margin: 0.6rem 0;
+  background-color: white;
+}
+
+.loginForm__info {
+  max-width: 50%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  text-align: end;
+}
+
+.loginForm__info a {
+  font-weight: 700;
+}
+
+.loginForm__info a:hover {
+  color: #151fe4;
+}
+
+.alert-error {
+  background-color: #0fda74;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.alert-error p {
+  font-size: 1.6rem;
+  margin: 0.6rem 0;
+  color: white;
+  padding: 0.5rem 1rem;
+}
