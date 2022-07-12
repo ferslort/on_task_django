@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container-createProject">
+  <h2>Editando Proyecto</h2>
+
+  <div>
+    <form method="post" action="">
+      {% csrf_token %}
+      <fieldset>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" required value="{{project.name}}">
+      </fieldset>
+      <fieldset>
+        <label for="description">Descripción</label>
+        <textarea name="description" id="description" cols="10" rows="10" maxlength="50"
+          required>{{project.description}}</textarea>
+      </fieldset>
+      <fieldset>
+        <label for="dateDelivery">Fecha de entrega</label>
+        <input type="date" name="dateDelivery" id="dateDelivery" value="{{project.dateDelivery}}">
+      </fieldset>
+      <fieldset>
+        <button type="submit">Editar</button>
+      </fieldset>
+  </div>
+</div>
+
+{% endblock %}

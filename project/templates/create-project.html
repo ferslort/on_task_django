@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container-createProject">
+  <h2>Crear Proyecto</h2>
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <div class="container-fluid p-0">
+      <div class="alert alert-info alert-dismissible " role="alert">
+        {{ message }}
+      </div>
+    </div>
+    {% endfor %}
+  </ul>
+  {% endif %}
+  <div>
+    <form method="post" action="">
+      {% csrf_token %}
+      <fieldset>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" required>
+      </fieldset>
+      <fieldset>
+        <label for="description">Descripción</label>
+        <textarea name="description" id="description" cols="10" rows="10" maxlength="50" required></textarea>
+      </fieldset>
+      <fieldset>
+        <label for="dateDelivery">Fecha de entrega</label>
+        <input type="date" name="dateDelivery" id="dateDelivery">
+      </fieldset>
+      <fieldset>
+        <button type="submit">Crear</button>
+      </fieldset>
+  </div>
+</div>
+
+{% endblock %}

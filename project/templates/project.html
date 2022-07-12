@@ -1,0 +1,131 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container-project-detail">
+  <div class="container-project-detail__header">
+    <div>
+      <h2>{{project.name}}</h2>
+      <div>
+        <button class="container-project-detail__edit">
+          <a href="{% url 'edit_project' id=project.id %}">
+            <i class="fa-solid fa-file-pen"></i>
+
+          </a>
+        </button>
+        <button type="button" class="container-project-detail__delete" data-toggle="modal"
+          data-target="#exampleModalCenter">
+          <i class="fa-solid fa-trash-can"></i>
+
+        </button>
+      </div>
+    </div>
+    <div class="container-project-detail__newTask">
+      <a href="{% url 'create_task' id=project.id %}">
+        <button>
+          <i class="fa-solid fa-plus"></i>
+          Nueva Tarea
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="container-project-detail__body">
+    <div>
+      <div class="container-project-detail__body-title">
+        <i class="fa-solid fa-message"></i>
+        <h3>Descripción del proyecto:</h3>
+      </div>
+      <div class="container-project-detail__body-description">
+        <p>{{project.description}}</p>
+      </div>
+    </div>
+    <div class="container-project-detail__body-title">
+      <i class="fa-solid fa-list-check"></i>
+      <h3>Tareas del proyecto:</h3>
+    </div>
+    <div class="container-project-detail__body-description task">
+      {% if project.tasks %} {% for task in project.tasks %}
+      <div class="container-project-detail__task">
+        <div>
+          <p><strong>Nombre:</strong> {{task.name}}</p>
+          <p><strong>Descripción:</strong> {{task.description}}</p>
+          <p><strong>Fecha de entrega: </strong>{{task.dateDelivery}}</p>
+          <p><strong>Prioridad:</strong>{{task.priority}}</p>
+        </div>
+        <div class="container-project-detail__task-options">
+          <form method="post" action="{% url 'completed_task' task.id %}">
+            {% csrf_token %}
+            <button type="submit">
+              {% if task.isCompleted == True %}
+              <i class="fa-solid fa-circle-check isCompletedTask"></i>
+
+              {% else %}
+              <i class="fa-solid fa-circle-exclamation notCompletedTask"></i>
+              {% endif %}
+            </button>
+          </form>
+
+          <button class="container-project-detail__edit">
+            <a href="{% url 'edit_task' id=task.id %}">
+              <i class="fa-solid fa-file-pen"></i>
+            </a>
+          </button>
+
+          <form method="post" action="{% url 'delete_task' task.id %}">
+            {% csrf_token %}
+            <button type="submit" class="container-project-detail__delete">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+      {% endfor %} {% else %}
+      <div class="container-project-detail__notTask">
+        <lord-icon src="https://cdn.lordicon.com/ckatldkn.json" trigger="loop" delay="2000"
+          style="width: 70px; height: 70px">
+        </lord-icon>
+        <p>No hay registros</p>
+        <p>Intenta crear una tarea</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- delete the current project-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="delete-project">
+          <h2>Eliminar Proyecto</h2>
+          <p>¿Estás seguro de que quieres eliminar este proyecto?</span>
+          <div class="delete-project__detail">
+            <p>{{project.name}}</p>
+          </div>
+          <div class="delete-project__button">
+            <form method="post" action="{% url 'delete_project' project.id %}">
+              {% csrf_token %}
+              <button class="btn btn-danger" type="submit">
+                <a>
+                  <i class="fa-solid fa-trash-can"></i>
+                  Eliminar
+                </a>
+              </button>
+            </form>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              <i class="fa-solid fa-times"></i>
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+<!-- add a task to the current project -->

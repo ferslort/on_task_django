@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static '/css/styles.css' %}"
+    />
+    <script
+      src="https://kit.fontawesome.com/4f9b2df5c0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container-global">
+      <header class="container-global__header">
+        <div>
+          <span class="container-global__header-logo">
+            <a href="{% url 'dashboard_page' %}">OnTask</a>
+          </span>
+        </div>
+        <nav class="container-global__header-nav">
+          <div class="container-global__header-logout">
+            <div class="d-flex btn">
+              <i class="fa-solid fa-house"></i>
+              <a href="{% url 'dashboard_page' %}">Inicio</a>
+            </div>
+            <a href="{% url 'logout_page' %}"
+              >Cerrar Sesión <i class="fa-solid fa-power-off"></i
+            ></a>
+          </div>
+        </nav>
+      </header>
+      <main class="container-global__main">
+        {% block content%} {% endblock %}
+      </main>
+      <footer class="container-global__footer">
+        <div>
+          <span class="container-global__footer-logo">OnTask</span>
+        </div>
+        <div>
+          <p>Desarrollado por: Fernando Padilla</p>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

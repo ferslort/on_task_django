@@ -1,0 +1,49 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container-dashboard">
+  <div class="container-dashboard__sidebar">
+    <div>
+      <lord-icon
+        src="https://cdn.lordicon.com/cjyxqyly.json"
+        trigger="loop"
+        delay="2000"
+        style="width: 110px; height: 110px"
+      >
+      </lord-icon>
+      <p>Bienvenido, {{userAuth.username}}</p>
+    </div>
+    <div>
+      <button>
+        <a href="{% url 'create_project'%}">Crear Proyecto</a>
+      </button>
+    </div>
+  </div>
+  <div class="container-dashboard__main">
+    {% if projects %} {%for project in projects%}
+    <div class="container-dashboard__main-project">
+      <div>
+        <p>{{project.name}}</p>
+      </div>
+
+      <div class="container-dashboard__main-project-viewProject">
+        <a href="{% url 'project' project.id %}">
+          <i class="fa-solid fa-eye"></i>
+        </a>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="container-dashboard__main-notProjects">
+      <lord-icon
+        src="https://cdn.lordicon.com/ckatldkn.json"
+        trigger="loop"
+        delay="2000"
+        style="width: 150px; height: 150px"
+      >
+      </lord-icon>
+      <p>No hay registros</p>
+      <p>Intenta crear un proyecto</p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
