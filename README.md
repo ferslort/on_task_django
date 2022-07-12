@@ -9,9 +9,6 @@ Permite organizar y gestionar todos tus proyectos en una interfaz de usuario, ad
 #### Framework:
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?logo=django&logoColor=white)
 
-#### Base de datos:
-![MySQL](https://img.shields.io/badge/-MySQL-black?style=flat-square&logo=mysql)
-
 #### Otras tecnologias:
 ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat-square&logo=css3)
