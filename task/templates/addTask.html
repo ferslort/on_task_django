@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class="container-createProject">
+  <div class="container-createProject__header">
+    <h2>Crear Tarea</h2>
+  </div>
+
+  <div>
+    <form method="post" action="">
+      {% csrf_token %}
+      <fieldset>
+        <label for="name">Nombre</label>
+        <input type="text" name="name" id="name" required value={{project.name}}>
+      </fieldset>
+      <fieldset>
+        <label for="description">Descripción</label>
+        <textarea name="description" id="description" cols="10" rows="10" required></textarea>
+      </fieldset>
+      <fieldset>
+        <div class="container-createTask">
+          <div class="container-createTask__item">
+            <label for="dateDelivery">Fecha de entrega</label>
+            <input type="date" name="dateDelivery" id="dateDelivery">
+          </div>
+          <div class="container-createTask__item">
+            <label for="priority">Prioridad</label>
+            <select name="priority" id="priority">
+              <option value="0">Alta</option>
+              <option value="1">Media</option>
+              <option value="2">Baja</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <label for="isCompleted">Completado</label>
+        <div>
+          <label class="switch">
+            <input type="checkbox" name="isCompleted" id="isCompleted">
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <button type="submit">Crear</button>
+      </fieldset>
+  </div>
+</div>
+
+{% endblock %}
